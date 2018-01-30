@@ -1,0 +1,21 @@
+<h2>Login</h2>
+<form [formGroup]="loginForm" novalidate>
+  <div class="form-group">
+    <label class="center-block">UID:<input class="form-control" formControlName="uid">{{ loginForm.get("uid").valid }} {{ loginForm.get("uid").dirty }}</label>
+    <label [hidden]="loginForm.get('uid').valid">
+      uid required
+    </label>
+    <label class="center-block">UPass:<input class="form-control" formControlName="upass"></label>
+     <label [hidden]="loginForm.get('upass').valid">
+     needsExclamation
+    </label>
+    <p>Form value: {{ loginForm.value | json }}</p>
+    <p>Form status: {{ loginForm.status | json }}</p>
+    <p>Model value: {{ userModel | json}}</p>
+    <button type="button" [disabled]="!isFormValid()" class="btn btn-danger btn-block" (click)='login()'>Login</button>
+  </div>
+</form>
+<app-new [data]="mydata"></app-new>
+{{mydata}}
+
+
